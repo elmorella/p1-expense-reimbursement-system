@@ -18,5 +18,5 @@ public interface ErsTicketDao {
 
     List<Ticket> getTicketsByEmpIdAndStatus(int empId, String status);
 
-    void updateTicket(Employee employee);
+    void updateTicket(Ticket ticket);
 }
