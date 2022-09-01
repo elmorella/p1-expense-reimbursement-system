@@ -1,10 +1,10 @@
 package doa.impl;
 
 import doa.dao.ErsTicketDao;
+import model.ErsTicket;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import sun.security.krb5.internal.Ticket;
 import util.HibernateConf;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     private final SessionFactory sessionFactory = HibernateConf.getSessionFactory();
 
     @Override
-    public void addTicket(Ticket ticket) {
+    public void addTicket(ErsTicket ticket) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
@@ -26,12 +26,12 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
-    public Ticket getTicketById(int id) {
+    public ErsTicket getTicketById(int id) {
         Transaction transaction = null;
-        Ticket ticket = null;
+        ErsTicket ticket = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            ticket = session.get(Ticket.class, id);
+            ticket = session.get(ErsTicket.class, id);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)
@@ -41,9 +41,9 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
-    public List<Ticket> getAllTickets() {
+    public List<ErsTicket> getAllTickets() {
         Transaction transaction = null;
-        List<Ticket> tickets = null;
+        List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             tickets = session.createQuery("from ers_tickets").list();
@@ -56,9 +56,9 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
-    public List<Ticket> getAllOpenTickets() {
+    public List<ErsTicket> getAllOpenTickets() {
         Transaction transaction = null;
-        List<Ticket> tickets = null;
+        List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             tickets = session.createQuery("from ers_tickets where status='pending'").list();
@@ -71,9 +71,9 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
-    public List<Ticket> getAllClosedTickets() {
+    public List<ErsTicket> getAllClosedTickets() {
         Transaction transaction = null;
-        List<Ticket> tickets = null;
+        List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             tickets = session.createQuery("from ers_tickets where status='resolved'").list();
@@ -86,9 +86,9 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
-    public List<Ticket> getTicketsByEmpIdAndStatus(int empId, String status) {
+    public List<ErsTicket> getTicketsByEmpIdAndStatus(int empId, String status) {
         Transaction transaction = null;
-        List<Ticket> tickets = null;
+        List<ErsTicket> tickets = null;
         String query = "from ers_tickets where emp_id='" + empId + "' AND status='" + status + "'";
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
@@ -103,7 +103,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
-    public void updateTicket(Ticket ticket) {
+    public void updateTicket(ErsTicket ticket) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();

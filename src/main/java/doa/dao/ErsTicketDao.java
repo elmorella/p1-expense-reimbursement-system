@@ -1,22 +1,20 @@
 package doa.dao;
 
-import model.Employee;
-import sun.security.krb5.internal.Ticket;
-
+import model.ErsTicket;
 import java.util.List;
 
 public interface ErsTicketDao {
-    void addTicket(Ticket ticket);
+    void addTicket(ErsTicket ticket);
 
-    Ticket getTicketById(int id);
+    ErsTicket getTicketById(int id);
 
-    List<Ticket> getAllTickets();
+    List<ErsTicket> getAllTickets();
 
-    List<Ticket> getAllOpenTickets();
+    List<ErsTicket> getAllOpenTickets();
 
-    List<Ticket> getAllClosedTickets();
+    List<ErsTicket> getAllClosedTickets();
 
-    List<Ticket> getTicketsByEmpIdAndStatus(int empId, String status);
+    List<ErsTicket> getTicketsByEmpIdAndStatus(int empId, String status);
 
-    void updateTicket(Ticket ticket);
+    void updateTicket(ErsTicket ticket);
 }
