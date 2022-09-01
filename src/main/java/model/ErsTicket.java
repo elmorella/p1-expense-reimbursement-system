@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class ErsTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ticket_number", nullable = false)
-    private int ticketNumber;
+    @Column(name = "ticket_id", nullable = false)
+    private int ticketId;
     private String Category;
     private double amount;
     private String status;
@@ -17,12 +17,12 @@ public class ErsTicket {
     public ErsTicket() {
     }
 
-    public int getTicketNumber() {
-        return ticketNumber;
+    public int getTicketId() {
+        return ticketId;
     }
 
-    public void setTicketNumber(int ticketNumber) {
-        this.ticketNumber = ticketNumber;
+    public void setTicketNumber(int ticketId) {
+        this.ticketId = ticketId;
     }
 
     public String getCategory() {
@@ -60,7 +60,7 @@ public class ErsTicket {
     @Override
     public String toString() {
         return "ErsTicket{" +
-                "ticketNumber = " + ticketNumber +
+                "ticketId = " + ticketId +
                 ", Category = '" + Category + '\'' +
                 ", amount = " + amount +
                 ", status = '" + status + '\'' +
