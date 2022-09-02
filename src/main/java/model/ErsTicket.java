@@ -9,12 +9,21 @@ public class ErsTicket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ticket_id", nullable = false)
     private int ticketId;
-    private String Category;
+    private String category;
+    private String description;
     private double amount;
     private String status;
     private int empId;
 
-    public ErsTicket() {
+    public ErsTicket() {}
+
+    public ErsTicket(int ticketId, String category, String description, double amount, String status, int empId) {
+        this.ticketId = ticketId;
+        this.category = category;
+        this.description = description;
+        this.amount = amount;
+        this.status = status;
+        this.empId = empId;
     }
 
     public int getTicketId() {
@@ -26,11 +35,11 @@ public class ErsTicket {
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
     }
 
     public double getAmount() {
@@ -60,11 +69,12 @@ public class ErsTicket {
     @Override
     public String toString() {
         return "ErsTicket{" +
-                "ticketId = " + ticketId +
-                ", Category = '" + Category + '\'' +
-                ", amount = " + amount +
-                ", status = '" + status + '\'' +
-                ", empId = " + empId +
+                "ticketId= " + ticketId +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", status='" + status + '\'' +
+                ", empId=" + empId +
                 '}';
     }
 }

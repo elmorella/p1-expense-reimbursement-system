@@ -6,9 +6,19 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
+    <servlet-name>servlets.LoginServlet</servlet-name>
+    <servlet-class>servlets.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>servlets.TestServlet</servlet-name>
     <servlet-class>servlets.TestServlet</servlet-class>
   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>servlets.LoginServlet</servlet-name>
+    <url-pattern>/servlets.LoginServlet</url-pattern>
+  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>servlets.TestServlet</servlet-name>
