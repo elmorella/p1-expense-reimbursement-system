@@ -15,6 +15,41 @@
     <servlet-class>servlets.TestServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>servlets.AssociateHomepageServlet</servlet-name>
+    <servlet-class>servlets.AssociateHomepageServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>servlets.CreateNewTicketServlet</servlet-name>
+    <servlet-class>servlets.CreateNewTicketServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>servlets.ManagerHomepageServlet</servlet-name>
+    <servlet-class>servlets.ManagerHomepageServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>servlets.UpdatePersonalInfoServlet</servlet-name>
+    <servlet-class>servlets.UpdatePersonalInfoServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>servlets.ViewClosedTicketsServlet</servlet-name>
+    <servlet-class>servlets.ViewClosedTicketsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>servlets.ViewOpenTicketsServlet</servlet-name>
+    <servlet-class>servlets.ViewOpenTicketsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>servlets.ViewPersonalInfoServlet</servlet-name>
+    <servlet-class>servlets.ViewPersonalInfoServlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>servlets.LoginServlet</servlet-name>
     <url-pattern>/servlets.LoginServlet</url-pattern>
@@ -23,5 +58,40 @@
   <servlet-mapping>
     <servlet-name>servlets.TestServlet</servlet-name>
     <url-pattern>/servlets.TestServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.AssociateHomepageServlet</servlet-name>
+    <url-pattern>/servlets.AssociateHomepageServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.CreateNewTicketServlet</servlet-name>
+    <url-pattern>/servlets.CreateNewTicketServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.ManagerHomepageServlet</servlet-name>
+    <url-pattern>/servlets.ManagerHomepageServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.UpdatePersonalInfoServlet</servlet-name>
+    <url-pattern>/servlets.UpdatePersonalInfoServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.ViewClosedTicketsServlet</servlet-name>
+    <url-pattern>/servlets.ViewClosedTicketsServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.ViewOpenTicketsServlet</servlet-name>
+    <url-pattern>/servlets.ViewOpenTicketsServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.ViewPersonalInfoServlet</servlet-name>
+    <url-pattern>/servlets.ViewPersonalInfoServlet</url-pattern>
   </servlet-mapping>
 </web-app>
