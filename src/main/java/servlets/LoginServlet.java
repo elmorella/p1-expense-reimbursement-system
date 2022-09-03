@@ -14,32 +14,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        request.getRequestDispatcher("login.html").include(request, response);
-
-        out.println("<div>" +
-                "<h1>P1-Expense Reimbursement System</h1>\n" +
-                "<h3>Login</h3>" +
-                "<form action=\"servlets.LoginServlet\" method=\"post\">\n" +
-                "<div class=\"form-element\">\n" +
-                "<label for=\"email-input\">Email</label>\n" +
-                "<input id=\"email-input\" type=\"text\" name=\"email-input\">\n" +
-                "</div>\n" +
-                "<div>\n" +
-                "<label for=\"password-input\">Password</label>\n" +
-                "<input type=\"password\" name=\"password-input\" id=\"password-input\">\n" +
-                "</div>\n" +
-                "<div class=\"form-element\">\n" +
-                "<input type=\"submit\" value=\"Submit\">\n" +
-                "</div>\n" +
-                "</form>" +
-                "</div>");
-        out.close();
-    }
-
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
