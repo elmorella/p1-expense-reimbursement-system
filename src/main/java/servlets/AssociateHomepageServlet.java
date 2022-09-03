@@ -18,7 +18,7 @@ public class AssociateHomepageServlet extends HttpServlet {
         EmployeeDao dao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("navbar.html").include(request, response);
 
-        // Get the 'sum' attribute value from the request
+        // Get the 'empid' attribute value from the request
         int empId = (int) request.getAttribute("empid");
 
         Employee employee = dao.getEmployeeById(empId);
@@ -28,10 +28,10 @@ public class AssociateHomepageServlet extends HttpServlet {
                 "<div class=\"container text-center\">\n" +
                   "<div class=\"row\">\n" +
                     "<div class=\"col\">\n" +
-                        "<a href=\"servlets.CreateNewTicketServlet\">Create New Ticket</a>" +
+                        "<a href=\"servlets.CreateNewTicketServlet?id=" + employee.getEmpId() + "\">Create New Ticket</a>" +
                     "</div>\n" +
                     "<div class=\"col\">\n" +
-                        "<a href=\"servlets.ViewOpenTicketsServlet\">View Open Tickets</a>" +
+                        "<a href=\"servlets.ViewOpenTicketsServlet?id=" + employee.getEmpId() + "\">View Open Tickets</a>" +
                     "</div>\n" +
                   "</div>\n" +
                 "</div>"
@@ -39,10 +39,10 @@ public class AssociateHomepageServlet extends HttpServlet {
                 "<div class=\"container text-center\">\n" +
                   "<div class=\"row\">\n" +
                     "<div class=\"col\">\n" +
-                        "<a href=\"servlets.ViewClosedTicketsServlet\">View Closed Tickets</a>" +
+                        "<a href=\"servlets.ViewClosedTicketsServlet?id=" + employee.getEmpId() + "\">View Closed Tickets</a>" +
                     "</div>\n" +
                     "<div class=\"col\">\n" +
-                        "<a href=\"servlets.ViewPersonalInfoServlet\">View Personal Information</a>" +
+                        "<a href=\"servlets.ViewPersonalInfoServlet?id=" + employee.getEmpId() + "\">View Personal Information</a>" +
                     "</div>\n" +
                   "</div>\n" +
                 "</div>"

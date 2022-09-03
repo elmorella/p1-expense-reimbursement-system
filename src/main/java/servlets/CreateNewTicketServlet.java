@@ -11,6 +11,12 @@ public class CreateNewTicketServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("Create New Ticket");
+
+        int empId = Integer.parseInt(request.getParameter("id"));
+
+        request.setAttribute("id", empId);
+        request.getRequestDispatcher("createticket.jsp").forward(request, response);
+
+        out.close();
     }
 }
