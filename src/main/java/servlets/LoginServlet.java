@@ -27,10 +27,7 @@ public class LoginServlet extends HttpServlet {
 
         if (employee != null && password.equals(employee.getPassword())) {
             request.setAttribute("employee", employee);
-            if (employee.getTitle().equals("associate"))
-                request.getRequestDispatcher("servlets.AssociateHomepageServlet").forward(request, response);
-            else
-                request.getRequestDispatcher("servlets.ManagerHomepageServlet").forward(request, response);
+            request.getRequestDispatcher("servlets.EmployeeRouterServlet").forward(request, response);
         } else {
             out.println("<h3><a href=\"index.jsp\">Login</a></h3>" +
                     "Invalid input. Email and password mismatch");
