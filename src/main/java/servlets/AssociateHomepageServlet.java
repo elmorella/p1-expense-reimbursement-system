@@ -18,10 +18,12 @@ public class AssociateHomepageServlet extends HttpServlet {
         EmployeeDao dao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("navbar.html").include(request, response);
 
-        // Get the 'empid' attribute value from the request
-        int empId = (int) request.getAttribute("empid");
+//        // Get the 'empid' attribute value from the request
+//        int empId = (int) request.getAttribute("empid");
+//
+//        Employee employee = dao.getEmployeeById(empId);
 
-        Employee employee = dao.getEmployeeById(empId);
+        Employee employee = (Employee) request.getAttribute("employee");
 
         out.println("<h2>Employee Dashboard</h2>\n" +
                 "<h3>" + employee.getName() + " | ID: " + employee.getEmpId() + "</h3>" +

@@ -9,8 +9,6 @@
 </head>
 
 <body>
-    <h3> My Employee ID: <%= request.getParameter("id") %>
-    </h3>
     <h3>Create new request</h3>
     <form action="servlets.CreateNewTicketServlet" method="post">
         <div class="form-element">
