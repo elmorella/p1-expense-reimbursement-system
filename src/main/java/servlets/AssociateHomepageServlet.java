@@ -1,9 +1,6 @@
 package servlets;
 
-import doa.dao.EmployeeDao;
-import doa.factories.EmployeeDaoFactory;
 import model.Employee;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +12,7 @@ public class AssociateHomepageServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        EmployeeDao dao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("navbar.html").include(request, response);
-
-//        // Get the 'empid' attribute value from the request
-//        int empId = (int) request.getAttribute("empid");
-//
-//        Employee employee = dao.getEmployeeById(empId);
 
         Employee employee = (Employee) request.getAttribute("employee");
 
@@ -49,5 +40,6 @@ public class AssociateHomepageServlet extends HttpServlet {
                   "</div>\n" +
                 "</div>"
         );
+        out.close();
     }
 }

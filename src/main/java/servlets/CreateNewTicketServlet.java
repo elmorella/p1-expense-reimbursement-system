@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class CreateNewTicketServlet extends HttpServlet {
-    //int empId;
     private Employee employee;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

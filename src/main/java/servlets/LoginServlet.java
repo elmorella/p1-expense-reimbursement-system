@@ -26,7 +26,6 @@ public class LoginServlet extends HttpServlet {
         } catch (Exception e) {}
 
         if (employee != null && password.equals(employee.getPassword())) {
-//            request.setAttribute("empid", employee.getEmpId());
             request.setAttribute("employee", employee);
             if (employee.getTitle().equals("associate"))
                 request.getRequestDispatcher("servlets.AssociateHomepageServlet").forward(request, response);
