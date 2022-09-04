@@ -10,7 +10,7 @@
         <form action="servlets.LoginServlet" method="post">
             <div class="form-element">
                 <label for="email-input">Email</label>
-                <input id="email-input" type="text" name="email-input">
+                <input id="email-input" type="email" name="email-input">
             </div>
             <div>
                 <label for="password-input">Password</label>

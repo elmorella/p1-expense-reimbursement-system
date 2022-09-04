@@ -9,12 +9,14 @@
 </head>
 
 <body>
-    <h3> My Employee ID: <%= request.getParameter("id") %></h3>
+    <h3> My Employee ID: <%= request.getParameter("id") %>
+    </h3>
     <h3>Create new request</h3>
     <form action="servlets.CreateNewTicketServlet" method="post">
         <div class="form-element">
             <label for="category">Category</label>
-            <select id="category" name="category">
+            <select id="category" name="category" required>
+                <option value="" disabled selected hidden>Choose one</option>
                 <option value="Donations">Donation</option>
                 <option value="Gifts">Gifts</option>
                 <option value="Meals">Meals</option>
@@ -28,12 +30,13 @@
             <textarea id="description-input" rows="3" cols="100" name="description-input" required></textarea>
         </div>
         <div class="form-element">
-            <label for="amount-input">Amount</label>
-            <input id="amount-input" type="number" name="amount-input" placeholder="$0.00">
+            <label for="amount-input">Amount $</label>
+            <input id="amount-input" type="text" name="amount-input" placeholder="$0.00" required>
         </div>
         <div class="form-element">
             <input type="submit" value="Submit">
         </div>
     </form>
 </body>
+
 </html>
