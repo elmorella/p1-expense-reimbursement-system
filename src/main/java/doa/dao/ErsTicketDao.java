@@ -8,6 +8,8 @@ public interface ErsTicketDao {
 
     ErsTicket getTicketById(int id);
 
+    ErsTicket getTicketByFields(int empId, String category, String description, double amount, String status);
+
     List<ErsTicket> getAllTickets();
 
     List<ErsTicket> getAllOpenTickets();

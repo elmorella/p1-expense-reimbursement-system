@@ -41,6 +41,27 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     }
 
     @Override
+    public ErsTicket getTicketByFields(int empId, String category, String description, double amount, String status) {
+        Transaction transaction = null;
+        ErsTicket ticket = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            ticket = (ErsTicket) session.createQuery("from ers_tickets where " +
+                    "emp_id ='" + empId + "' AND" +
+                    "category ='" + category + "' AND" +
+                    "description ='" + description + "' AND" +
+                    "amount ='" + amount + "' AND" +
+                    "status ='" + status + "' AND").
+                    list().get(0);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null)
+                transaction.rollback();
+        }
+        return ticket;
+    }
+
+    @Override
     public List<ErsTicket> getAllTickets() {
         Transaction transaction = null;
         List<ErsTicket> tickets = null;

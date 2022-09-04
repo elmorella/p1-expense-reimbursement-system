@@ -13,6 +13,7 @@ public class ErsTicket {
     private String description;
     private double amount;
     private String status;
+    @Column(name = "emp_id")
     private int empId;
 
     public ErsTicket() {}
@@ -30,7 +31,7 @@ public class ErsTicket {
         return ticketId;
     }
 
-    public void setTicketNumber(int ticketId) {
+    public void setTicketId(int ticketId) {
         this.ticketId = ticketId;
     }
 
@@ -40,6 +41,14 @@ public class ErsTicket {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getAmount() {
