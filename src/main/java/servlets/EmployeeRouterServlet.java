@@ -15,7 +15,6 @@ import java.io.PrintWriter;
 public class EmployeeRouterServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
-        PrintWriter out = response.getWriter();
         int empId;
 
         if (request.getAttribute("id") == null) {
