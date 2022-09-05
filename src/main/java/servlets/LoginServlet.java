@@ -5,6 +5,7 @@ import doa.factories.EmployeeDaoFactory;
 import model.Employee;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,14 +24,18 @@ public class LoginServlet extends HttpServlet {
 
         try {
             employee = dao.getEmployeeByEmail(email);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            out.println("employee caught exception: " + e.getMessage());
+        }
 
         if (employee != null && password.equals(employee.getPassword())) {
-            request.setAttribute("employee", employee);
-            request.getRequestDispatcher("servlets.EmployeeRouterServlet").forward(request, response);
+            out.println(employee);
+            request.setAttribute("id", employee.getEmpId());
+            request.getRequestDispatcher("servlets.EmployeeRouterServlet")
+                    .forward(request, response);
         } else {
-            out.println("<h3><a href=\"index.jsp\">Login</a></h3>" +
-                    "Invalid input. Email and password mismatch");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+            out.println("Invalid input. Email and password mismatch");
         }
         out.close();
     }

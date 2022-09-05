@@ -6,7 +6,7 @@
 </head>
 <body>
     <div>
-        <h3><a href="index.jsp">Logout</a></h3>
+        <h3><a href="index.jsp">Login</a></h3>
 
     </div>
 </body>

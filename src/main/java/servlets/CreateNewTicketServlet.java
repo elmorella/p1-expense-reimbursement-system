@@ -41,14 +41,20 @@ public class CreateNewTicketServlet extends HttpServlet {
         ticket.setEmpId(this.employee.getEmpId());
         ersTicketDao.addTicket(ticket);
 
-        request.getRequestDispatcher("navbar.html").include(request, response);
+        request.getRequestDispatcher("navbar.jsp").include(request, response);
 
         out.println("Request submitted\n");
-        out.println("Ticket ID: " + ticket.getTicketId() + "\n");
-        out.println("Category: " + ticket.getCategory() + "\n");
-        out.println("Description: " + ticket.getDescription() + "\n");
-        out.println("Status: " + ticket.getStatus() + "\n");
-        out.println("Requester: " + this.employee.getName() + "\n");
+        out.println("Ticket ID: " + ticket.getTicketId() + "<br>");
+        out.println("Category: " + ticket.getCategory() + "<br>");
+        out.println("Description: " + ticket.getDescription() + "<br>");
+        out.println("Status: " + ticket.getStatus() + "<br>");
+        out.println("Requester: " + this.employee.getName() + "<br>");
+        out.println("<form action=\"servlets.EmployeeRouterServlet\" method=\"post\">" +
+                        "<div class=\"form-element\">" +
+                            "<input type=\"hidden\" name=\"id\" value=\"" + employee.getEmpId() + "\">" +
+                            "<input type=\"submit\" value=\"Close\">" +
+                        "</div>\n" +
+                    "</form>");
         out.close();
     }
 }
