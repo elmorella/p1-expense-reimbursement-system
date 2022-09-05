@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import util.HibernateConf;
-
 import java.util.List;
 
 public class ErsTicketDaoImpl implements ErsTicketDao {
@@ -67,7 +66,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
         List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            tickets = session.createQuery("from ers_tickets").list();
+            tickets = session.createQuery("from ErsTicket").list();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)
@@ -82,7 +81,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
         List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            tickets = session.createQuery("from ers_tickets where status='pending'").list();
+            tickets = session.createQuery("from ErsTicket where status='pending'").list();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)
@@ -97,7 +96,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
         List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            tickets = session.createQuery("from ers_tickets where status='resolved'").list();
+            tickets = session.createQuery("from ErsTicket where status='resolved'").list();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)
@@ -110,7 +109,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
     public List<ErsTicket> getTicketsByEmpIdAndStatus(int empId, String status) {
         Transaction transaction = null;
         List<ErsTicket> tickets = null;
-        String query = "from ers_tickets where emp_id='" + empId + "' AND status='" + status + "'";
+        String query = "from ErsTicket where emp_id='" + empId + "' AND status='" + status + "'";
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             tickets = session.createQuery(query).list();
@@ -120,7 +119,6 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
                 transaction.rollback();
         }
         return tickets;
-
     }
 
     @Override

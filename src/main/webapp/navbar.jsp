@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,8 +6,7 @@
 </head>
 <body>
     <div>
-        <h3><a href="index.jsp">Login</a></h3>
-
+        <h3><a href="index.jsp">Logout</a></h3>
     </div>
 </body>
 </html>
