@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <h3>Create new request</h3>
+        <h2>CREATE NEW REQUEST</h2>
         <form action="servlets.CreateNewTicketServlet" method="post">
             <div class="form-element">
                 <label for="category">Category</label>

@@ -96,7 +96,7 @@ public class ErsTicketDaoImpl implements ErsTicketDao {
         List<ErsTicket> tickets = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            tickets = session.createQuery("from ErsTicket where status='resolved'").list();
+            tickets = session.createQuery("from ErsTicket where status!='pending'").list();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)

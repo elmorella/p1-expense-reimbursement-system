@@ -17,7 +17,7 @@ public class AssociateHomepageServlet extends HttpServlet {
         request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
 
-        out.println("<h2>Employee Dashboard</h2>\n" +
+        out.println("<h2>EMPLOYEE DASHBOARD</h2>\n" +
                 "<div class=\"container text-center\">\n" +
                   "<div class=\"row\">\n" +
                     "<div class=\"col\">\n" +

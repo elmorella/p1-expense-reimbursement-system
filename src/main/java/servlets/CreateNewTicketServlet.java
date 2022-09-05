@@ -22,7 +22,7 @@ public class CreateNewTicketServlet extends HttpServlet {
         int empId = Integer.parseInt(request.getParameter("id"));
         this.employee = employeeDao.getEmployeeById(empId);
 
-        //request.setAttribute("id", employee.getEmpId());
+        request.setAttribute("id", employee.getEmpId());
         request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
 
