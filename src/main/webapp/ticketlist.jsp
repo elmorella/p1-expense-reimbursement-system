@@ -11,7 +11,6 @@
         </head>
 
         <body>
-            <h3>Employee: ${employee.getName()} | ID: ${employee.empId}</h3>
             <div class="container text-center">
                 <h2>${tablename}</h2>
             </div>

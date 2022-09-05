@@ -23,6 +23,8 @@ public class ViewOpenTicketsServlet extends HttpServlet {
         Employee employee = employeeDao.getEmployeeById(empId);
         PrintWriter out = response.getWriter();
 
+        request.setAttribute("id", employee.getEmpId());
+        request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
 
         List<ErsTicket> ticketList;
@@ -34,7 +36,7 @@ public class ViewOpenTicketsServlet extends HttpServlet {
         }
 
         request.setAttribute("tablename", "OPEN TICKETS");
-        request.getRequestDispatcher("opentickets.jsp").include(request, response);
+        request.getRequestDispatcher("ticketlist.jsp").include(request, response);
 
         for(int i = 0; i < ticketList.size(); i++) {
             out.println(

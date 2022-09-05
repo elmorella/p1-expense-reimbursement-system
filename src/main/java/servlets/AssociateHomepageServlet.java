@@ -12,12 +12,12 @@ public class AssociateHomepageServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        Employee employee = (Employee) request.getAttribute("employee");
+        request.setAttribute("id", employee.getEmpId());
+        request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
 
-        Employee employee = (Employee) request.getAttribute("employee");
-
         out.println("<h2>Employee Dashboard</h2>\n" +
-                "<h3>" + employee.getName() + " | ID: " + employee.getEmpId() + "</h3>" +
                 "<div class=\"container text-center\">\n" +
                   "<div class=\"row\">\n" +
                     "<div class=\"col\">\n" +

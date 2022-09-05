@@ -21,6 +21,12 @@ public class CreateNewTicketServlet extends HttpServlet {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         int empId = Integer.parseInt(request.getParameter("id"));
         this.employee = employeeDao.getEmployeeById(empId);
+
+        //request.setAttribute("id", employee.getEmpId());
+        request.setAttribute("name", employee.getName());
+        request.getRequestDispatcher("navbar.jsp").include(request, response);
+
+        request.setAttribute("id", employee.getEmpId());
         request.getRequestDispatcher("createticket.jsp").include(request, response);
     }
 
@@ -41,14 +47,16 @@ public class CreateNewTicketServlet extends HttpServlet {
         ticket.setEmpId(this.employee.getEmpId());
         ersTicketDao.addTicket(ticket);
 
+        request.setAttribute("id", employee.getEmpId());
+        request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
 
         out.println("Request submitted\n");
         out.println("Ticket ID: " + ticket.getTicketId() + "<br>");
         out.println("Category: " + ticket.getCategory() + "<br>");
         out.println("Description: " + ticket.getDescription() + "<br>");
-        out.println("Status: " + ticket.getStatus() + "<br>");
         out.println("Requester: " + this.employee.getName() + "<br>");
+        out.println("Status: " + ticket.getStatus() + "<br>");
         out.println("<form action=\"servlets.EmployeeRouterServlet\" method=\"post\">" +
                         "<div class=\"form-element\">" +
                             "<input type=\"hidden\" name=\"id\" value=\"" + employee.getEmpId() + "\">" +
