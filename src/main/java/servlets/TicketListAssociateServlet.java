@@ -21,7 +21,7 @@ public class TicketListAssociateServlet extends HttpServlet {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();
         int empId = Integer.parseInt(request.getParameter("id"));
-        String listType = request.getParameter("list");
+        String listType = request.getParameter("status");
         Employee employee = employeeDao.getEmployeeById(empId);
         PrintWriter out = response.getWriter();
 

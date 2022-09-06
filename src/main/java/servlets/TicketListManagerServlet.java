@@ -17,48 +17,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketListManagerServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        int empId = Integer.parseInt(request.getParameter("id"));
+        String status = request.getParameter("status");
+        Employee employee = employeeDao.getEmployeeById(empId);
+
+        request.setAttribute("id", employee.getEmpId());
+        request.setAttribute("name", employee.getName());
+        request.getRequestDispatcher("navbar.jsp").include(request, response);
+        out.println(
+                "<h2>LIST READY</h2>\n" +
+                        "<form action=\"servlets.TicketListManagerServlet\" method=\"post\">\n" +
+                        "<div class=\"form-element\">\n" +
+                        "<input type=\"hidden\" name=\"id\" value=\"" + empId + "\">\n" +
+                        "<input type=\"hidden\" name=\"status\" value=" + status + ">\n" +
+                        "<input type=\"submit\" value=\"Get List\">\n" +
+                        "</div>\n" +
+                        "</form>"
+        );
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();
-        int empId = Integer.parseInt(request.getParameter("id"));
-        Employee employee = employeeDao.getEmployeeById(empId);
+        int myId = Integer.parseInt(request.getParameter("id"));
+        String status = request.getParameter("status");
+        Employee employee = employeeDao.getEmployeeById(myId);
         PrintWriter out = response.getWriter();
 
         request.setAttribute("id", employee.getEmpId());
         request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
 
+        String tableName;
         List<ErsTicket> ticketList;
-        try {
-            ticketList = ticketDao.getTicketsByEmpIdAndStatus(employee.getEmpId(), "approved");
-            ticketList.addAll(ticketDao.getTicketsByEmpIdAndStatus(employee.getEmpId(), "denied"));
-        }catch (Exception e) {
-            out.println("Exception caught: " + e);
-            ticketList = new ArrayList<>();
+        String returnPath = "servlets.TicketListManagerServlet?status=" + status + "&id=" + myId;
+        if (status.equals("open")) {
+            tableName = "OPEN TICKETS";
+            try {
+                ticketList = ticketDao.getAllOpenTickets();
+                TicketTableGenerator.getOpenTickets(request, response, tableName, ticketList, myId, returnPath);
+            } catch (Exception e) {
+                out.println(e.getMessage());
+            }
+        } else {
+            tableName = "CLOSED TICKETS";
+            try {
+                ticketList = ticketDao.getAllClosedTickets();
+                TicketTableGenerator.getClosedTickets(request, response, tableName, ticketList, myId);
+            } catch (Exception e) {
+                out.println(e.getMessage());
+            }
         }
-
-        request.setAttribute("tablename", "CLOSED TICKETS");
-        request.getRequestDispatcher("ticketlist.jsp").include(request, response);
-
-        for(int i = 0; i < ticketList.size(); i++) {
-            out.println(
-                    "<tbody>\n" +
-                            "<tr>\n" +
-                            "<th scope=\"row\">" + ticketList.get(i).getTicketId() + "</th>\n" +
-                            "<td>" + ticketList.get(i).getCategory() + "</td>\n" +
-                            "<td>" + ticketList.get(i).getDescription() + "</td>\n" +
-                            "<td>" + ticketList.get(i).getAmount() + "</td>\n" +
-                            "<td>" + ticketList.get(i).getStatus()+ "</td>\n" +
-                            "</tr>\n"
-            );
-        }
-        out.println("</tbody>");
-        out.println("</table>");
-        out.println(
-                "<form action='servlets.EmpRouterServlet' method='post'>" +
-                        "<input type='hidden' name='id' value='" + employee.getEmpId() + "'/>" +
-                        "<input type='submit' value='Return to Dashboard'>\n" +
-                        "</form>"
-        );
     }
 }
