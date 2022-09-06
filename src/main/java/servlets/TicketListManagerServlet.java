@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManagerTicketListServlet extends HttpServlet {
+public class TicketListManagerServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();
@@ -55,7 +55,7 @@ public class ManagerTicketListServlet extends HttpServlet {
         out.println("</tbody>");
         out.println("</table>");
         out.println(
-                "<form action='servlets.EmployeeRouterServlet' method='post'>" +
+                "<form action='servlets.EmpRouterServlet' method='post'>" +
                         "<input type='hidden' name='id' value='" + employee.getEmpId() + "'/>" +
                         "<input type='submit' value='Return to Dashboard'>\n" +
                         "</form>"

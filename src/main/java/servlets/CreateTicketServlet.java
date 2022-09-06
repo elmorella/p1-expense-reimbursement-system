@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class CreateNewTicketServlet extends HttpServlet {
+public class CreateTicketServlet extends HttpServlet {
     private Employee employee;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -57,7 +57,7 @@ public class CreateNewTicketServlet extends HttpServlet {
         out.println("Description: " + ticket.getDescription() + "<br>");
         out.println("Requester: " + this.employee.getName() + "<br>");
         out.println("Status: " + ticket.getStatus() + "<br>");
-        out.println("<form action=\"servlets.EmployeeRouterServlet\" method=\"post\">" +
+        out.println("<form action=\"servlets.EmpRouterServlet\" method=\"post\">" +
                         "<div class=\"form-element\">" +
                             "<input type=\"hidden\" name=\"id\" value=\"" + employee.getEmpId() + "\">" +
                             "<input type=\"submit\" value=\"Close\">" +

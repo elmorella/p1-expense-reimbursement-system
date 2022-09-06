@@ -10,7 +10,7 @@
 
     <body>
         <h2>CREATE NEW REQUEST</h2>
-        <form action="servlets.CreateNewTicketServlet" method="post">
+        <form action="servlets.CreateTicketServlet" method="post">
             <div class="form-element">
                 <label for="category">Category</label>
                 <select id="category" name="category" required>
@@ -36,7 +36,7 @@
             </div>
         </form>
 
-        <form action="servlets.EmployeeRouterServlet" method="post">
+        <form action="servlets.EmpRouterServlet" method="post">
             <div class="form-element">
                 <input type="hidden" name="id" value="${id}">
                 <input type="submit" value="Return to Dashboard">

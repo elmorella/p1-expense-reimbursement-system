@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         if (employee != null && password.equals(employee.getPassword())) {
             out.println(employee);
             request.setAttribute("id", employee.getEmpId());
-            request.getRequestDispatcher("servlets.EmployeeRouterServlet")
+            request.getRequestDispatcher("servlets.EmpRouterServlet")
                     .forward(request, response);
         } else {
             request.getRequestDispatcher("index.jsp").include(request, response);

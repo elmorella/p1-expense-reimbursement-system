@@ -28,7 +28,7 @@
                 </div>
             </form>
 
-            <form action="servlets.EmployeeRouterServlet" method="post">
+            <form action="servlets.EmpRouterServlet" method="post">
                 <div class="form-element">
                     <input type="hidden" name="id" value="${employee.empId}">
                     <input type="submit" value="Return to Dashboard">

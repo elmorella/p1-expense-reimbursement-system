@@ -16,13 +16,13 @@
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.EmployeeHomepageServlet</servlet-name>
-    <servlet-class>servlets.EmployeeHomepageServlet</servlet-class>
+    <servlet-name>servlets.HomepageServlet</servlet-name>
+    <servlet-class>servlets.HomepageServlet</servlet-class>
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.CreateNewTicketServlet</servlet-name>
-    <servlet-class>servlets.CreateNewTicketServlet</servlet-class>
+    <servlet-name>servlets.CreateTicketServlet</servlet-name>
+    <servlet-class>servlets.CreateTicketServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -31,13 +31,13 @@
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.ManagerTicketListServlet</servlet-name>
-    <servlet-class>servlets.ManagerTicketListServlet</servlet-class>
+    <servlet-name>servlets.TicketListManagerServlet</servlet-name>
+    <servlet-class>servlets.TicketListManagerServlet</servlet-class>
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.AssociateTicketListServlet</servlet-name>
-    <servlet-class>servlets.AssociateTicketListServlet</servlet-class>
+    <servlet-name>servlets.TicketListAssociateServlet</servlet-name>
+    <servlet-class>servlets.TicketListAssociateServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -46,8 +46,8 @@
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.EmployeeRouterServlet</servlet-name>
-    <servlet-class>servlets.EmployeeRouterServlet</servlet-class>
+    <servlet-name>servlets.EmpRouterServlet</servlet-name>
+    <servlet-class>servlets.EmpRouterServlet</servlet-class>
   </servlet>
 
 
@@ -63,13 +63,13 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.EmployeeHomepageServlet</servlet-name>
-    <url-pattern>/servlets.EmployeeHomepageServlet</url-pattern>
+    <servlet-name>servlets.HomepageServlet</servlet-name>
+    <url-pattern>/servlets.HomepageServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.CreateNewTicketServlet</servlet-name>
-    <url-pattern>/servlets.CreateNewTicketServlet</url-pattern>
+    <servlet-name>servlets.CreateTicketServlet</servlet-name>
+    <url-pattern>/servlets.CreateTicketServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
@@ -78,13 +78,13 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.ManagerTicketListServlet</servlet-name>
-    <url-pattern>/servlets.ManagerTicketListServlet</url-pattern>
+    <servlet-name>servlets.TicketListManagerServlet</servlet-name>
+    <url-pattern>/servlets.TicketListManagerServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.AssociateTicketListServlet</servlet-name>
-    <url-pattern>/servlets.AssociateTicketListServlet</url-pattern>
+    <servlet-name>servlets.TicketListAssociateServlet</servlet-name>
+    <url-pattern>/servlets.TicketListAssociateServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
@@ -93,7 +93,7 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.EmployeeRouterServlet</servlet-name>
-    <url-pattern>/servlets.EmployeeRouterServlet</url-pattern>
+    <servlet-name>servlets.EmpRouterServlet</servlet-name>
+    <url-pattern>/servlets.EmpRouterServlet</url-pattern>
   </servlet-mapping>
 </web-app>
