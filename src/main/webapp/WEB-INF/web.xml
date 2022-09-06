@@ -16,8 +16,8 @@
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.AssociateHomepageServlet</servlet-name>
-    <servlet-class>servlets.AssociateHomepageServlet</servlet-class>
+    <servlet-name>servlets.EmployeeHomepageServlet</servlet-name>
+    <servlet-class>servlets.EmployeeHomepageServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -26,23 +26,18 @@
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.ManagerHomepageServlet</servlet-name>
-    <servlet-class>servlets.ManagerHomepageServlet</servlet-class>
-  </servlet>
-
-  <servlet>
     <servlet-name>servlets.UpdatePersonalInfoServlet</servlet-name>
     <servlet-class>servlets.UpdatePersonalInfoServlet</servlet-class>
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.ViewClosedTicketsServlet</servlet-name>
-    <servlet-class>servlets.ViewClosedTicketsServlet</servlet-class>
+    <servlet-name>servlets.ManagerTicketListServlet</servlet-name>
+    <servlet-class>servlets.ManagerTicketListServlet</servlet-class>
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.ViewOpenTicketsServlet</servlet-name>
-    <servlet-class>servlets.ViewOpenTicketsServlet</servlet-class>
+    <servlet-name>servlets.EmployeeTicketListServlet</servlet-name>
+    <servlet-class>servlets.EmployeeTicketListServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -68,8 +63,8 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.AssociateHomepageServlet</servlet-name>
-    <url-pattern>/servlets.AssociateHomepageServlet</url-pattern>
+    <servlet-name>servlets.EmployeeHomepageServlet</servlet-name>
+    <url-pattern>/servlets.EmployeeHomepageServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
@@ -78,23 +73,18 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.ManagerHomepageServlet</servlet-name>
-    <url-pattern>/servlets.ManagerHomepageServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
     <servlet-name>servlets.UpdatePersonalInfoServlet</servlet-name>
     <url-pattern>/servlets.UpdatePersonalInfoServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.ViewClosedTicketsServlet</servlet-name>
-    <url-pattern>/servlets.ViewClosedTicketsServlet</url-pattern>
+    <servlet-name>servlets.ManagerTicketListServlet</servlet-name>
+    <url-pattern>/servlets.ManagerTicketListServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.ViewOpenTicketsServlet</servlet-name>
-    <url-pattern>/servlets.ViewOpenTicketsServlet</url-pattern>
+    <servlet-name>servlets.EmployeeTicketListServlet</servlet-name>
+    <url-pattern>/servlets.EmployeeTicketListServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>

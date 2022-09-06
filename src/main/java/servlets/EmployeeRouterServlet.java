@@ -16,19 +16,20 @@ public class EmployeeRouterServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         int empId;
+        Employee employee;
 
-        if (request.getAttribute("id") == null) {
-            empId = Integer.parseInt(request.getParameter("id"));
+        if (request.getAttribute("employee") == null) {
+            if (request.getAttribute("id") == null) {
+                empId = Integer.parseInt(request.getParameter("id"));
+            } else {
+                empId = (int) request.getAttribute("id");
+            }
+            employee = employeeDao.getEmployeeById(empId);
         } else {
-            empId = (int) request.getAttribute("id");
+            employee = (Employee) request.getAttribute("employee");
         }
 
-        Employee employee = employeeDao.getEmployeeById(empId);
-
         request.setAttribute("employee", employee);
-        if (employee.getTitle().equals("associate"))
-            request.getRequestDispatcher("servlets.AssociateHomepageServlet").forward(request, response);
-        else
-            request.getRequestDispatcher("servlets.ManagerHomepageServlet").forward(request, response);
+        request.getRequestDispatcher("servlets.EmployeeHomepageServlet").forward(request, response);
     }
 }

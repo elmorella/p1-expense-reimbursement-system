@@ -15,15 +15,7 @@
                 <h2>${tablename}</h2>
             </div>
             <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Ticket ID</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
+
         </body>
 
         </html>
