@@ -36,8 +36,8 @@
   </servlet>
 
   <servlet>
-    <servlet-name>servlets.EmployeeTicketListServlet</servlet-name>
-    <servlet-class>servlets.EmployeeTicketListServlet</servlet-class>
+    <servlet-name>servlets.AssociateTicketListServlet</servlet-name>
+    <servlet-class>servlets.AssociateTicketListServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -83,8 +83,8 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>servlets.EmployeeTicketListServlet</servlet-name>
-    <url-pattern>/servlets.EmployeeTicketListServlet</url-pattern>
+    <servlet-name>servlets.AssociateTicketListServlet</servlet-name>
+    <url-pattern>/servlets.AssociateTicketListServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>

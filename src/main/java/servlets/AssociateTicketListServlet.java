@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeTicketListServlet extends HttpServlet {
+public class AssociateTicketListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();

@@ -21,6 +21,19 @@ public class EmployeeHomepageServlet extends HttpServlet {
             setManagerDashboard(request, response, employee);
     }
 
+    private void setAssociateDashboard(HttpServletRequest request, HttpServletResponse response, Employee employee) throws ServletException, IOException {
+        request.setAttribute("page_title", "ASSOCIATE DASHBOARD");
+        request.setAttribute("opt1", "MAKE A NEW REQUEST");
+        request.setAttribute("opt1_url", "servlets.CreateNewTicketServlet?id=" + employee.getEmpId());
+        request.setAttribute("opt2", "VIEW OPEN REQUESTS");
+        request.setAttribute("opt2_url", "servlets.AssociateTicketListServlet?list=open&id=" + employee.getEmpId());
+        request.setAttribute("opt3", "VIEW CLOSED REQUESTS");
+        request.setAttribute("opt3_url", "servlets.AssociateTicketListServlet?list=closed&id=" + employee.getEmpId());
+        request.setAttribute("opt4", "VIEW PERSONAL INFORMATION");
+        request.setAttribute("opt4_url", "servlets.ViewPersonalInfoServlet?id=" + employee.getEmpId());
+        request.getRequestDispatcher("employeedashboard.jsp").include(request, response);
+    }
+
     private void setManagerDashboard(HttpServletRequest request, HttpServletResponse response, Employee employee) throws ServletException, IOException {
         request.setAttribute("page_title", "MANAGER DASHBOARD");
         request.setAttribute("opt1", "VIEW OPEN REQUESTS");
@@ -30,19 +43,6 @@ public class EmployeeHomepageServlet extends HttpServlet {
         request.setAttribute("opt3", "VIEW EMPLOYEE REQUESTS");
         request.setAttribute("opt3_url", "servlets.ViewOpenTicketsServlet?list=empall&id=" + employee.getEmpId());
         request.setAttribute("opt4", "EMPLOYEE MANAGEMENT");
-        request.setAttribute("opt4_url", "servlets.ViewPersonalInfoServlet?id=" + employee.getEmpId());
-        request.getRequestDispatcher("employeedashboard.jsp").include(request, response);
-    }
-
-    private void setAssociateDashboard(HttpServletRequest request, HttpServletResponse response, Employee employee) throws ServletException, IOException {
-        request.setAttribute("page_title", "ASSOCIATE DASHBOARD");
-        request.setAttribute("opt1", "MAKE A NEW REQUEST");
-        request.setAttribute("opt1_url", "servlets.CreateNewTicketServlet?id=" + employee.getEmpId());
-        request.setAttribute("opt2", "VIEW OPEN REQUESTS");
-        request.setAttribute("opt2_url", "servlets.EmployeeTicketListServlet?list=open&id=" + employee.getEmpId());
-        request.setAttribute("opt3", "VIEW CLOSED REQUESTS");
-        request.setAttribute("opt3_url", "servlets.EmployeeTicketListServlet?list=closed&id=" + employee.getEmpId());
-        request.setAttribute("opt4", "VIEW PERSONAL INFORMATION");
         request.setAttribute("opt4_url", "servlets.ViewPersonalInfoServlet?id=" + employee.getEmpId());
         request.getRequestDispatcher("employeedashboard.jsp").include(request, response);
     }
