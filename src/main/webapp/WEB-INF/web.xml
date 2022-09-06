@@ -55,6 +55,10 @@
     <servlet-class>servlets.EmpRouterServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>servlets.DispositionServlet</servlet-name>
+    <servlet-class>servlets.DispositionServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -106,4 +110,9 @@
     <servlet-name>servlets.EmpRouterServlet</servlet-name>
     <url-pattern>/servlets.EmpRouterServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet-mapping>
+  <servlet-name>servlets.DispositionServlet</servlet-name>
+  <url-pattern>/servlets.DispositionServlet</url-pattern>
+</servlet-mapping>
 </web-app>

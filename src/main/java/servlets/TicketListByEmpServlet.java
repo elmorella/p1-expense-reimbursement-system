@@ -30,7 +30,7 @@ public class TicketListByEmpServlet extends HttpServlet {
                 "<h2>ENTER ASSOCIATE ID</h2>\n" +
                         "<form action=\"servlets.TicketListByEmpServlet\" method=\"post\">\n" +
                         "<div class=\"form-element\">\n" +
-                        "<input id=\"empid-input\" type=\"number\" name=\"empid-input\">\n" +
+                        "<input id=\"associd\" type=\"number\" name=\"associd\">\n" +
                         "</div>\n" +
                         "<div class=\"form-element\">\n" +
                         "<label for=\"status\">Status</label>\n" +
@@ -53,7 +53,7 @@ public class TicketListByEmpServlet extends HttpServlet {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();
         int myId = Integer.parseInt(request.getParameter("myid"));
-        int assocId = Integer.parseInt(request.getParameter("empid-input"));
+        int assocId = Integer.parseInt(request.getParameter("associd"));
         String status = request.getParameter("status");
         Employee employee = employeeDao.getEmployeeById(myId);
         Employee associate = employeeDao.getEmployeeById(assocId);
@@ -67,7 +67,7 @@ public class TicketListByEmpServlet extends HttpServlet {
         if (status.equals("open")) {
             try {
                 ticketList = ticketDao.getTicketsByEmpIdAndStatus(associate.getEmpId(), "pending");
-                getOpenTickets(request, response, associate.getName(), ticketList, myId);
+                getOpenTickets(request, response, associate.getName(), ticketList,assocId, myId);
             } catch (Exception e) {
                 out.println(e.getMessage());
             }
@@ -83,7 +83,7 @@ public class TicketListByEmpServlet extends HttpServlet {
     }
 
     private void getOpenTickets(HttpServletRequest request, HttpServletResponse response, String assocName,
-                                List<ErsTicket> ticketList, int myId) throws ServletException, IOException {
+                                List<ErsTicket> ticketList, int assocId, int myId) throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
         String tableName = "OPEN TICKETS | " + assocName;
@@ -113,6 +113,8 @@ public class TicketListByEmpServlet extends HttpServlet {
                             "<td>" + ersTicket.getStatus() + "</td>" +
                             "<td><form action='servlets.DispositionServlet' method='post'>" +
                             "<input type='hidden' name='myid' value='" + myId + "'/>" +
+                            "<input type='hidden' name='associd' value='" + assocId + "'/>" +
+                            "<input type='hidden' name='ticket-id' value='" + ersTicket.getTicketId() + "'/>" +
                             "<div class=\"form-element\">\n" +
                             "<label for=\"status\">Status</label>\n" +
                             "<select id=\"status\" name=\"status\" required>\n" +
