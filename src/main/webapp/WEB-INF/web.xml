@@ -41,6 +41,11 @@
   </servlet>
 
   <servlet>
+    <servlet-name>servlets.TicketListByEmpServlet</servlet-name>
+    <servlet-class>servlets.TicketListByEmpServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>servlets.ViewPersonalInfoServlet</servlet-name>
     <servlet-class>servlets.ViewPersonalInfoServlet</servlet-class>
   </servlet>
@@ -85,6 +90,11 @@
   <servlet-mapping>
     <servlet-name>servlets.TicketListAssociateServlet</servlet-name>
     <url-pattern>/servlets.TicketListAssociateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>servlets.TicketListByEmpServlet</servlet-name>
+    <url-pattern>/servlets.TicketListByEmpServlet</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>

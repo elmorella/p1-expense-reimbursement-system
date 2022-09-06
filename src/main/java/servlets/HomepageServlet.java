@@ -41,7 +41,7 @@ public class HomepageServlet extends HttpServlet {
         request.setAttribute("opt2", "VIEW CLOSED REQUESTS");
         request.setAttribute("opt2_url", "servlets.ViewOpenTicketsServlet?list=allclosed&id=" + employee.getEmpId());
         request.setAttribute("opt3", "VIEW EMPLOYEE REQUESTS");
-        request.setAttribute("opt3_url", "servlets.ViewOpenTicketsServlet?list=empall&id=" + employee.getEmpId());
+        request.setAttribute("opt3_url", "servlets.TicketListByEmpServlet?id=" + employee.getEmpId());
         request.setAttribute("opt4", "EMPLOYEE MANAGEMENT");
         request.setAttribute("opt4_url", "servlets.ViewPersonalInfoServlet?id=" + employee.getEmpId());
         request.getRequestDispatcher("employeedashboard.jsp").include(request, response);
