@@ -4,6 +4,24 @@
     <head>
         <meta charset="UTF-8">
         <title>Employee Dashboard</title>
+        <style>
+        .block {
+          display: block;
+          width:300px;
+          border: none;
+          background-color: #32c8ff;
+          color: white;
+          padding: 100px ;
+          font-size: 16px;
+          cursor: pointer;
+          text-align: center;
+        }
+
+        .block:hover {
+          background-color: #1E7494;
+          color: black;
+        }
+        </style>
     </head>
 
     <body>
@@ -11,19 +29,39 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    <a href="${opt1_url}">${opt1}</a>
+                    <form action="${opt1_url}" method="get">
+                        <div class="form-element">
+                            <input type="hidden" name="id" value="${id}">
+                            <button class="block" type="submit" value="${opt1}">${opt1}</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col">
-                    <a href="${opt2_url}">${opt2}</a>
+                    <form action="${opt2_url}" method="post">
+                        <div class="form-element">
+                            <input type="hidden" name="id" value="${id}">
+                            <button class="block" type="submit" value="${opt2}">${opt2}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <a href="${opt3_url}">${opt3}</a>
+                <form action="${opt3_url}" method="post">
+                    <div class="form-element">
+                        <input type="hidden" name="id" value="${id}">
+                        <button class="block" type="submit" value="${opt3}">${opt3}</button>
+                    </div>
+                </form>
             </div>
             <div class="col">
-                <a href="${opt4_url}">${opt4}</a>
+                <form action="${opt4_url}" method="get">
+                    <div class="form-element">
+                        <input type="hidden" name="id" value="${id}">
+                        <button class="block" type="submit" value="${opt4}">${opt4}</button>
+                    </div>
+                </form>
             </div>
         </div>
     </body>

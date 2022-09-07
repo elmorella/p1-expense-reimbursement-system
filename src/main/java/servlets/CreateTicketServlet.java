@@ -20,6 +20,7 @@ public class CreateTicketServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         int empId = Integer.parseInt(request.getParameter("id"));
+//        int empId = (int) request.getAttribute("id");
         this.employee = employeeDao.getEmployeeById(empId);
 
         request.setAttribute("id", employee.getEmpId());

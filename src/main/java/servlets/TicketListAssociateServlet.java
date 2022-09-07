@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketListAssociateServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();
         int empId = Integer.parseInt(request.getParameter("id"));
