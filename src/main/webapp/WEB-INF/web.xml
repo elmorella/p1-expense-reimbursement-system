@@ -58,7 +58,11 @@
   <servlet>
     <servlet-name>servlets.DispositionServlet</servlet-name>
     <servlet-class>servlets.DispositionServlet</servlet-class>
-  </servlet>
+  </servlet><servlet>
+
+  <servlet-name>servlets.ViewAllEmployeesServlet</servlet-name>
+  <servlet-class>servlets.ViewAllEmployeesServlet</servlet-class>
+</servlet>
 
 
   <servlet-mapping>
@@ -112,7 +116,11 @@
   </servlet-mapping>
 
   <servlet-mapping>
-  <servlet-name>servlets.DispositionServlet</servlet-name>
-  <url-pattern>/servlets.DispositionServlet</url-pattern>
+    <servlet-name>servlets.DispositionServlet</servlet-name>
+    <url-pattern>/servlets.DispositionServlet</url-pattern>
+  </servlet-mapping><servlet-mapping>
+
+  <servlet-name>servlets.ViewAllEmployeesServlet</servlet-name>
+  <url-pattern>/servlets.ViewAllEmployeesServlet</url-pattern>
 </servlet-mapping>
 </web-app>

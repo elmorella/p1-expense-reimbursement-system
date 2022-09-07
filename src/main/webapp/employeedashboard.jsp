@@ -29,7 +29,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    <form action="${opt1_url}" method="get">
+                    <form action="${opt1_url}" method="${opt1_method}">
                         <div class="form-element">
                             <input type="hidden" name="id" value="${id}">
                             <button class="block" type="submit" value="${opt1}">${opt1}</button>
@@ -37,7 +37,7 @@
                     </form>
                 </div>
                 <div class="col">
-                    <form action="${opt2_url}" method="post">
+                    <form action="${opt2_url}" method="${opt2_method}">
                         <div class="form-element">
                             <input type="hidden" name="id" value="${id}">
                             <button class="block" type="submit" value="${opt2}">${opt2}</button>
@@ -48,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <form action="${opt3_url}" method="post">
+                <form action="${opt3_url}" method="${opt3_method}">
                     <div class="form-element">
                         <input type="hidden" name="id" value="${id}">
                         <button class="block" type="submit" value="${opt3}">${opt3}</button>
@@ -56,7 +56,7 @@
                 </form>
             </div>
             <div class="col">
-                <form action="${opt4_url}" method="get">
+                <form action="${opt4_url}" method="${opt4_method}">
                     <div class="form-element">
                         <input type="hidden" name="id" value="${id}">
                         <button class="block" type="submit" value="${opt4}">${opt4}</button>

@@ -13,34 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TicketListManagerServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        int empId = Integer.parseInt(request.getParameter("id"));
-        String status = request.getParameter("status");
-        Employee employee = employeeDao.getEmployeeById(empId);
-
-        request.setAttribute("id", employee.getEmpId());
-        request.setAttribute("name", employee.getName());
-        request.getRequestDispatcher("navbar.jsp").include(request, response);
-        out.println(
-                "<h2>LIST READY</h2>\n" +
-                        "<form action=\"servlets.TicketListManagerServlet\" method=\"post\">\n" +
-                        "<div class=\"form-element\">\n" +
-                        "<input type=\"hidden\" name=\"id\" value=\"" + empId + "\">\n" +
-                        "<input type=\"hidden\" name=\"status\" value=" + status + ">\n" +
-                        "<input type=\"submit\" value=\"Get List\">\n" +
-                        "</div>\n" +
-                        "</form>"
-        );
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         ErsTicketDao ticketDao = ErsTicketDaoFactory.getErsTicketDao();

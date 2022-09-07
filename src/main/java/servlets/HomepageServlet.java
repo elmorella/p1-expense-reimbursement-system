@@ -25,12 +25,16 @@ public class HomepageServlet extends HttpServlet {
         request.setAttribute("page_title", "ASSOCIATE DASHBOARD");
         request.setAttribute("opt1", "MAKE<br>NEW<br>REQUEST");
         request.setAttribute("opt1_url", "servlets.CreateTicketServlet");
+        request.setAttribute("opt1_method", "get");
         request.setAttribute("opt2", "VIEW<br>OPEN<br>REQUESTS");
         request.setAttribute("opt2_url", "servlets.TicketListAssociateServlet?status=open&id=" + employee.getEmpId());
+        request.setAttribute("opt2_method", "post");
         request.setAttribute("opt3", "VIEW<br>CLOSED<br>REQUESTS");
         request.setAttribute("opt3_url", "servlets.TicketListAssociateServlet?status=closed&id=" +employee.getEmpId());
+        request.setAttribute("opt3_method", "post");
         request.setAttribute("opt4", "VIEW<br>PERSONAL<br>INFORMATION");
         request.setAttribute("opt4_url", "servlets.ViewPersonalInfoServlet");
+        request.setAttribute("opt4_method", "get");
         request.getRequestDispatcher("employeedashboard.jsp").include(request, response);
     }
 
@@ -38,12 +42,16 @@ public class HomepageServlet extends HttpServlet {
         request.setAttribute("page_title", "MANAGER DASHBOARD");
         request.setAttribute("opt1", "VIEW<br>OPEN<br>REQUESTS");
         request.setAttribute("opt1_url", "servlets.TicketListManagerServlet?status=open&id=" + employee.getEmpId());
+        request.setAttribute("opt1_method", "post");
         request.setAttribute("opt2", "VIEW<br>CLOSED<br>REQUESTS");
         request.setAttribute("opt2_url", "servlets.TicketListManagerServlet?status=closed&id=" + employee.getEmpId());
+        request.setAttribute("opt2_method", "post");
         request.setAttribute("opt3", "VIEW<br>EMPLOYEE<br>REQUESTS");
         request.setAttribute("opt3_url", "servlets.TicketListByEmpServlet?id=" + employee.getEmpId());
+        request.setAttribute("opt3_method", "get");
         request.setAttribute("opt4", "EMPLOYEE<br>MANAGEMENT");
-        request.setAttribute("opt4_url", "servlets.ViewPersonalInfoServlet?id=" + employee.getEmpId());
+        request.setAttribute("opt4_url", "servlets.ViewAllEmployeesServlet?id=" + employee.getEmpId());
+        request.setAttribute("opt4_method", "get");
         request.getRequestDispatcher("employeedashboard.jsp").include(request, response);
     }
 }
