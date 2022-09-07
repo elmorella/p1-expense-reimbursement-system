@@ -27,7 +27,7 @@
     </head>
 
     <body>
-        <h2>${page_title}</h2>
+        <h2 class="page-title">${page_title}</h2>
         <div class="container">
             <div class="row">
                 <div class="col">
