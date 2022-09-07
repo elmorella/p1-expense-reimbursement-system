@@ -29,7 +29,7 @@ public class ViewAllEmployeesServlet extends HttpServlet {
 
     private void getAllEmployees (HttpServletRequest request, HttpServletResponse response,
                                         List<Employee> employees, int myId) throws ServletException, IOException {
-        String tableName = "ORGANIZATION EMPLOYEES";
+        String tableName = "AVENGERS, INC";
         PrintWriter out = response.getWriter();
         request.setAttribute("tablename", tableName);
         request.getRequestDispatcher("ticketlist.jsp").include(request, response);
