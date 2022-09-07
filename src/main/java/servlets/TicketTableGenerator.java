@@ -1,5 +1,7 @@
 package servlets;
 
+import doa.dao.EmployeeDao;
+import doa.factories.EmployeeDaoFactory;
 import model.ErsTicket;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ public class TicketTableGenerator {
     public static void getOpenTickets(HttpServletRequest request, HttpServletResponse response, String tableName,
                                 List<ErsTicket> ticketList, int myId, String returnPath) throws ServletException, IOException {
 
+        EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         PrintWriter out = response.getWriter();
         request.setAttribute("tablename", tableName);
         request.getRequestDispatcher("ticketlist.jsp").include(request, response);
@@ -21,6 +24,7 @@ public class TicketTableGenerator {
                         "<thead>\n" +
                         "<tr>\n" +
                         "<th scope=\"col\">Ticket ID</th>\n" +
+                        "<th scope=\"col\">Requester</th>\n" +
                         "<th scope=\"col\">Category</th>\n" +
                         "<th scope=\"col\">Description</th>\n" +
                         "<th scope=\"col\">Amount</th>\n" +
@@ -34,6 +38,7 @@ public class TicketTableGenerator {
                     "<tbody>" +
                             "<tr>" +
                             "<th scope='row'>" + ersTicket.getTicketId() + "</th>" +
+                            "<td>" + employeeDao.getEmployeeById(ersTicket.getEmpId()).getName() + "</td>" +
                             "<td>" + ersTicket.getCategory() + "</td>" +
                             "<td>" + ersTicket.getDescription() + "</td>" +
                             "<td>" + ersTicket.getAmount() + "</td>" +
@@ -43,7 +48,6 @@ public class TicketTableGenerator {
                             "<input type='hidden' name='path' value='" + returnPath + "'/>" +
                             "<input type='hidden' name='ticket-id' value='" + ersTicket.getTicketId() + "'/>" +
                             "<div class=\"form-element\">\n" +
-                            "<label for=\"status\">Status</label>\n" +
                             "<select id=\"status\" name=\"status\" required>\n" +
                             "<option value=\"\" disabled selected hidden>Choose one</option>\n" +
                             "<option value=\"approved\">Approve</option>\n" +
@@ -68,6 +72,7 @@ public class TicketTableGenerator {
     public static void getClosedTickets(HttpServletRequest request, HttpServletResponse response, String tableName,
                                   List<ErsTicket> ticketList, int myId) throws ServletException, IOException {
 
+        EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         PrintWriter out = response.getWriter();
         request.setAttribute("tablename", tableName);
         request.getRequestDispatcher("ticketlist.jsp").include(request, response);
@@ -76,6 +81,7 @@ public class TicketTableGenerator {
                         "<thead>\n" +
                         "<tr>\n" +
                         "<th scope=\"col\">Ticket ID</th>\n" +
+                        "<th scope=\"col\">Requester</th>\n" +
                         "<th scope=\"col\">Category</th>\n" +
                         "<th scope=\"col\">Description</th>\n" +
                         "<th scope=\"col\">Amount</th>\n" +
@@ -88,6 +94,7 @@ public class TicketTableGenerator {
                     "<tbody>" +
                             "<tr>" +
                             "<th scope='row'>" + ersTicket.getTicketId() + "</th>" +
+                            "<td>" + employeeDao.getEmployeeById(ersTicket.getEmpId()).getName() + "</td>" +
                             "<td>" + ersTicket.getCategory() + "</td>" +
                             "<td>" + ersTicket.getDescription() + "</td>" +
                             "<td>" + ersTicket.getAmount() + "</td>" +
