@@ -13,9 +13,9 @@
 
         <body>
             <h2>PERSONAL INFORMATION</h2>
-            <h3>Name: ${employee.name}</h3>
-            <h3>Email: ${employee.email}</h3>
-            <h3>Title: ${employee.title}</h3>
+            <h4>Name: ${employee.name}</h4>
+            <h4>Email: ${employee.email}</h4>
+            <h4>Title: ${employee.title}</h4>
             <form action="servlets.UpdatePersonalInfoServlet" method="get">
                 <div class="form-element">
                     <input type="hidden" name="id" value="${employee.empId}">

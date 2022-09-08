@@ -72,7 +72,7 @@ public class TicketListAssociateServlet extends HttpServlet {
                             "<th scope=\"row\">" + ersTicket.getTicketId() + "</th>\n" +
                                 "<td>" + ersTicket.getCategory() + "</td>\n" +
                                 "<td>" + ersTicket.getDescription() + "</td>\n" +
-                                "<td>" + ersTicket.getAmount() + "</td>\n" +
+                                "<td>$" + ersTicket.getAmount() + "</td>\n" +
                                 "<td>" + ersTicket.getStatus() + "</td>\n" +
                             "</tr>\n"
             );

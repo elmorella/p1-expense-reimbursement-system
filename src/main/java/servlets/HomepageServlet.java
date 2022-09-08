@@ -49,7 +49,7 @@ public class HomepageServlet extends HttpServlet {
         request.setAttribute("opt3", "VIEW<br>EMPLOYEE<br>REQUESTS");
         request.setAttribute("opt3_url", "servlets.TicketListByEmpServlet?id=" + employee.getEmpId());
         request.setAttribute("opt3_method", "get");
-        request.setAttribute("opt4", "EMPLOYEE<br>MANAGEMENT");
+        request.setAttribute("opt4", "EMPLOYEE<br>MANAGEMENT<br>PORTAL");
         request.setAttribute("opt4_url", "servlets.ViewAllEmployeesServlet?id=" + employee.getEmpId());
         request.setAttribute("opt4_method", "get");
         request.getRequestDispatcher("employeedashboard.jsp").include(request, response);

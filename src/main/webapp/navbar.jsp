@@ -47,49 +47,20 @@
             <!-- Container wrapper -->
             <div class="container">
                 <!-- home button -->
-                <!-- <a class="btn btn-primary px-3" href="servlets.EmpRouterServlet?id=${id}" role="button"><i
-                        class="fas fa-home"></i></a> -->
                 <form action="servlets.EmpRouterServlet" method="post">
                     <div class="form-element">
                         <input type="hidden" name="id" value="${id}">
-                        <input type="image" value="Dashboard" src="/src/main/webapp/ic_home.svg">
+                        <button class="fas fa-home fa-2x bg-white"  type="submit" value="Dashboard">
                     </div>
                 </form>
 
                 <!-- Navbar brand -->
                 <h4 class="navbar-brand me-2">P1-EXPENSE REIMBURSEMENT SYSTEM</h4>
-                <!-- <a class="navbar-brand me-2" href="https://mdbgo.com/">
-                    <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="16"
-                        alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
-                </a> -->
-
-                <!-- Toggle button
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                    data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button> -->
-                <!-- Collapsible wrapper -->
-                <!-- <div class="collapse navbar-collapse" id="navbarButtonsExample"> -->
-                <!-- Left links -->
-
-                <!-- Toggle button
-                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button> -->
-
-                <!-- Left links -->
-
                 <div class="d-flex align-items-center">
                     <h5 class="nav-header">${name} | ID: ${id}</h5>
                     <a href="index.jsp"><button type="button" class="btn btn-primary me-3">
                             Logout
                         </button></a>
-                    <a class="btn btn-dark px-3 github"
-                        href="https://github.com/elmorella/p1-expense-reinbursement-system" role="button"><i
-                            class="fab fa-github"></i></a>
                 </div>
             </div>
             <!-- Collapsible wrapper -->

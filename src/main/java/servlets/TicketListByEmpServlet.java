@@ -26,26 +26,28 @@ public class TicketListByEmpServlet extends HttpServlet {
         request.setAttribute("id", employee.getEmpId());
         request.setAttribute("name", employee.getName());
         request.getRequestDispatcher("navbar.jsp").include(request, response);
-        out.println(
-                "<h2>ENTER ASSOCIATE ID</h2>\n" +
-                        "<form action=\"servlets.TicketListByEmpServlet\" method=\"post\">\n" +
-                        "<div class=\"form-element\">\n" +
-                        "<input id=\"associd\" type=\"number\" name=\"associd\">\n" +
-                        "</div>\n" +
-                        "<div class=\"form-element\">\n" +
-                        "<label for=\"status\">Status</label>\n" +
-                        "<select id=\"status\" name=\"status\" required>\n" +
-                        "<option value=\"\" disabled selected hidden>Choose one</option>\n" +
-                        "<option value=\"open\">Open</option>\n" +
-                        "<option value=\"closed\">Closed</option>\n" +
-                        "</select>\n" +
-                        "</div>" +
-                        "<div class=\"form-element\">\n" +
-                        "<input type=\"hidden\" name=\"myid\" value=\"" + empId + "\">\n" +
-                        "<input type=\"submit\" value=\"Submit\">\n" +
-                        "</div>\n" +
-                        "</form>"
-        );
+        request.setAttribute("id", employee.getEmpId());
+        request.getRequestDispatcher("getassociateid.jsp").include(request, response);
+//        out.println(
+//                "<h2>ENTER ASSOCIATE ID</h2>\n" +
+//                        "<form action=\"servlets.TicketListByEmpServlet\" method=\"post\">\n" +
+//                        "<div class=\"form-element\">\n" +
+//                        "<input id=\"associd\" type=\"number\" name=\"associd\">\n" +
+//                        "</div>\n" +
+//                        "<div class=\"form-element\">\n" +
+//                        "<label for=\"status\">Status</label>\n" +
+//                        "<select id=\"status\" name=\"status\" required>\n" +
+//                        "<option value=\"\" disabled selected hidden>Choose one</option>\n" +
+//                        "<option value=\"open\">Open</option>\n" +
+//                        "<option value=\"closed\">Closed</option>\n" +
+//                        "</select>\n" +
+//                        "</div>" +
+//                        "<div class=\"form-element\">\n" +
+//                        "<input type=\"hidden\" name=\"myid\" value=\"" + empId + "\">\n" +
+//                        "<input type=\"submit\" value=\"Submit\">\n" +
+//                        "</div>\n" +
+//                        "</form>"
+//        );
     }
 
     @Override

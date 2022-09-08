@@ -41,7 +41,7 @@ public class TicketTableGenerator {
                             "<td>" + employeeDao.getEmployeeById(ersTicket.getEmpId()).getName() + "</td>" +
                             "<td>" + ersTicket.getCategory() + "</td>" +
                             "<td>" + ersTicket.getDescription() + "</td>" +
-                            "<td>" + ersTicket.getAmount() + "</td>" +
+                            "<td>$" + ersTicket.getAmount() + "</td>" +
                             "<td>" + ersTicket.getStatus() + "</td>" +
                             "<td><form action='servlets.DispositionServlet' method='post'>" +
                             "<input type='hidden' name='myid' value='" + myId + "'/>" +
@@ -97,7 +97,7 @@ public class TicketTableGenerator {
                             "<td>" + employeeDao.getEmployeeById(ersTicket.getEmpId()).getName() + "</td>" +
                             "<td>" + ersTicket.getCategory() + "</td>" +
                             "<td>" + ersTicket.getDescription() + "</td>" +
-                            "<td>" + ersTicket.getAmount() + "</td>" +
+                            "<td> $" + ersTicket.getAmount() + "</td>" +
                             "<td>" + ersTicket.getStatus() + "</td>" +
                             "</tr>"
             );
